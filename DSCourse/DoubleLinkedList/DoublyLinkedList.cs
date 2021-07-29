@@ -31,6 +31,22 @@ namespace DSCourse.DoubleLinkedList
             }
         }
 
+        public void AddToFront(int value)
+        {
+            var newNode = new Node(value);
+            if (_head == null)
+            {
+                this._head = newNode;
+                this._tail = newNode;
+            }
+            else
+            {
+                newNode.Next = this._head;
+                this._head.Previous = newNode;
+                this._head = newNode;
+            }
+        }
+
 
         public void PrintBackward()
         {

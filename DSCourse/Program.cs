@@ -39,6 +39,7 @@ namespace DSCourse
             doubleLinkedList.AddToBack(9);
             doubleLinkedList.AddToBack(8);
             doubleLinkedList.AddToBack(7);
+            doubleLinkedList.AddToFront(11);
 
             doubleLinkedList.PrintBackward();
 
