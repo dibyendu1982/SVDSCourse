@@ -31,6 +31,25 @@ namespace DSCourse.DoubleLinkedList
             }
         }
 
+        public void InsertNode(int valueToSearch, int valueToInsert)
+        {
+            var nodeToInsert = new Node(valueToInsert);
+
+            var current = this._head;
+
+            while (current.Value != valueToSearch)
+            {
+                current = current.Next;
+            }
+
+            nodeToInsert.Previous = current;
+            nodeToInsert.Next = current.Next;
+            current.Next.Previous = nodeToInsert;
+            current.Next = nodeToInsert;
+
+        }
+
+
         public void AddToFront(int value)
         {
             var newNode = new Node(value);
@@ -46,6 +65,7 @@ namespace DSCourse.DoubleLinkedList
                 this._head = newNode;
             }
         }
+
 
 
         public void PrintBackward()

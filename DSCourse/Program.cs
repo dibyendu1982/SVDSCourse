@@ -35,16 +35,24 @@ namespace DSCourse
 
             var doubleLinkedList = new DoublyLinkedList();
 
-            doubleLinkedList.AddToBack(10);
-            doubleLinkedList.AddToBack(9);
-            doubleLinkedList.AddToBack(8);
-            doubleLinkedList.AddToBack(7);
-            doubleLinkedList.AddToFront(11);
-
-            doubleLinkedList.PrintBackward();
+            doubleLinkedList.AddToBack(11);
+            doubleLinkedList.AddToBack(12);
+            doubleLinkedList.AddToBack(15);
+            doubleLinkedList.AddToBack(67);
+            
 
             Console.WriteLine("Printing in forward");
             doubleLinkedList.PrintForward();
+
+            doubleLinkedList.InsertNode(12, 13);
+
+            Console.WriteLine("Printing in forward");
+            doubleLinkedList.PrintForward();
+
+            //doubleLinkedList.PrintBackward();
+
+            //Console.WriteLine("Printing in forward");
+            //doubleLinkedList.PrintForward();
 
             Console.ReadLine();
         }
