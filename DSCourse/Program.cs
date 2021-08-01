@@ -30,6 +30,11 @@ namespace DSCourse
             //linkedList.AddToEnd(1);
             //linkedList.AddToFront(10);
             //linkedList.AddToFront(11);
+
+            //linkedList.Remove(9);
+            //linkedList.Remove(11);
+            //linkedList.Remove(1);
+
             //linkedList.PrintLinkedList();
 
 
@@ -39,20 +44,28 @@ namespace DSCourse
             doubleLinkedList.AddToBack(12);
             doubleLinkedList.AddToBack(15);
             doubleLinkedList.AddToBack(67);
+
+
+            Console.WriteLine("Printing in forward");
+            //doubleLinkedList.PrintForward();
+
+            doubleLinkedList.InsertNodeAfter(12, 13);
+            Console.WriteLine("Printing in forward- Original");
+            doubleLinkedList.PrintForward();
+            doubleLinkedList.InsertNodeBefore(11, 27);
+            doubleLinkedList.InsertNodeBefore(13, 28);
+            doubleLinkedList.InsertNodeBefore(67, 29);
+
             
 
-            Console.WriteLine("Printing in forward");
-            doubleLinkedList.PrintForward();
+            //doubleLinkedList.DeleteNode(11);
 
-            doubleLinkedList.InsertNode(12, 13);
-
-            Console.WriteLine("Printing in forward");
-            doubleLinkedList.PrintForward();
+            //doubleLinkedList.DeleteNode(67);
 
             //doubleLinkedList.PrintBackward();
 
-            //Console.WriteLine("Printing in forward");
-            //doubleLinkedList.PrintForward();
+            Console.WriteLine("Printing in forward  after operation.");
+            doubleLinkedList.PrintForward();
 
             Console.ReadLine();
         }

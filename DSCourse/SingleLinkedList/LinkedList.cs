@@ -30,6 +30,38 @@ namespace DSCourse
             }
         }
 
+        public void Remove(int valueToRemove)
+        {
+
+            var back = _head;
+
+            for (Node current = _head; current != null; current = current.Next)
+            {
+                if (current.Value == valueToRemove)
+                {
+                    // If the node is head then save the head to the next node 
+                    if (current == _head)
+                    {
+                        _head = _head.Next;
+                        return;
+                    }
+
+                    // If the node is tail then move the tail to previous node which is in back here. 
+                    if (current == _tail)
+                    {
+                        _tail = back;
+                        _tail.Next = null;
+                        return;
+                    }
+
+                    // If the node is in the middle then use the back next to current node's next so that the current can be dropped. 
+                    back.Next = current.Next;
+                }
+
+                back = current;
+            }
+        }
+
         public void AddToFront(int a)
         {
 
