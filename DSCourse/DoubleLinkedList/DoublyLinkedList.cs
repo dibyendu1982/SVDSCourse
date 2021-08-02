@@ -109,6 +109,74 @@ namespace DSCourse.DoubleLinkedList
             }
         }
 
+        public void SkipAndDeleteNodes(int startPosition, int stopPosition, int nodesToSkip)
+        {
+            // If start is GREATER than stop then don't proceed
+            if (startPosition > stopPosition)
+            {
+                Console.WriteLine("Enter valid value for start and stop position");
+                return;
+            }
+
+            // Considering starting position as one based  
+            int currentPosition = 1;
+
+            int positionToDelete = 1;
+
+            for (Node current = this._head; current != null; current = current.Next)
+            {
+                if (current == null)
+                {
+                    Console.WriteLine("Node not found");
+                    return;
+                }
+
+                // Start from the head 
+                if (startPosition == currentPosition && currentPosition == 1)
+                {
+                    // Save the head
+                    this._head = current.Next;
+                    this._head.Previous = null;
+                }
+
+                // IF the start is not from the head then delete the current node and set the position to delete 
+                // which will be used in the next iteration. 
+                if (startPosition == currentPosition && currentPosition != 1)
+                {
+                    current.Previous.Next = current.Next;
+                    current.Next.Previous = current.Previous;
+                    positionToDelete = startPosition;
+                }
+
+                // Calculate the next position to delete
+                if (currentPosition == positionToDelete + nodesToSkip + 1)
+                {
+                    // if the stop node is reached then stop
+                    if (currentPosition == stopPosition)
+                    {
+                        return;
+                    }
+                    else if (current == this._tail)
+                    {
+                        // if the tail is reached then save the tail
+                        this._tail = current.Previous;
+                        this._tail.Next = null;
+                    }
+                    else
+                    {
+                        // this means you are in the middle just remove the current node.
+                        current.Previous.Next = current.Next;
+                        current.Next.Previous = current.Previous;
+                        positionToDelete = currentPosition;
+                    }
+
+                }
+
+                currentPosition += 1;
+
+            }
+        }
+
         public void DeleteNode(int valueToDelete)
         {
             for (Node current = this._head; current != null; current = current.Next)

@@ -7,22 +7,6 @@ namespace DSCourse
     {
         static void Main(string[] args)
         {
-            //string[] cars = { "tata", "jaguar", "bmw", "ford" };
-            //int[] intArray = { 1,8, 4, 5, 6, 7 };
-
-            //Console.WriteLine(cars); //Prints the Type of the array
-            //Console.WriteLine(intArray); // Prints the Type of the array
-
-            //foreach (string car in cars)
-            //{
-            //    Console.Write("{0}  ", car);
-            //}
-
-            //foreach (int item in intArray)
-            //{
-            //    Console.Write("{0}  ", item);
-            //}
-
             //var linkedList = new LinkedList();
             //linkedList.AddToEnd(5);
             //linkedList.AddToEnd(6);
@@ -44,25 +28,19 @@ namespace DSCourse
             doubleLinkedList.AddToBack(12);
             doubleLinkedList.AddToBack(15);
             doubleLinkedList.AddToBack(67);
-
-
-            Console.WriteLine("Printing in forward");
-            //doubleLinkedList.PrintForward();
-
+            doubleLinkedList.AddToBack(69);
+            doubleLinkedList.AddToBack(70);
+            doubleLinkedList.AddToBack(71);
+            doubleLinkedList.AddToBack(72);
             doubleLinkedList.InsertNodeAfter(12, 13);
-            Console.WriteLine("Printing in forward- Original");
-            doubleLinkedList.PrintForward();
             doubleLinkedList.InsertNodeBefore(11, 27);
             doubleLinkedList.InsertNodeBefore(13, 28);
             doubleLinkedList.InsertNodeBefore(67, 29);
-
             
+            Console.WriteLine("Printing in forward- Original");
+            doubleLinkedList.PrintForward();
 
-            //doubleLinkedList.DeleteNode(11);
-
-            //doubleLinkedList.DeleteNode(67);
-
-            //doubleLinkedList.PrintBackward();
+            doubleLinkedList.SkipAndDeleteNodes(1, 12, 3);
 
             Console.WriteLine("Printing in forward  after operation.");
             doubleLinkedList.PrintForward();
