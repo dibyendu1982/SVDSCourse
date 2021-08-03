@@ -23,29 +23,34 @@ namespace DSCourse
             //linkedList.PrintLinkedList();
 
 
-            //var doubleLinkedList = new DoublyLinkedList();
+            //DoublyLinkedListOperations();
 
-            //doubleLinkedList.AddToBack(11);
-            //doubleLinkedList.AddToBack(12);
-            //doubleLinkedList.AddToBack(15);
-            //doubleLinkedList.AddToBack(67);
-            //doubleLinkedList.AddToBack(69);
-            //doubleLinkedList.AddToBack(70);
-            //doubleLinkedList.AddToBack(71);
-            //doubleLinkedList.AddToBack(72);
-            //doubleLinkedList.InsertNodeAfter(12, 13);
-            //doubleLinkedList.InsertNodeBefore(11, 27);
-            //doubleLinkedList.InsertNodeBefore(13, 28);
-            //doubleLinkedList.InsertNodeBefore(67, 29);
 
-            //Console.WriteLine("Printing in forward- Original");
-            //doubleLinkedList.PrintForward();
+            void DoublyLinkedListOperations()
+            {
+                var doubleLinkedList = new DoublyLinkedList();
 
-            //doubleLinkedList.SkipAndDeleteNodes(1, 12, 3);
+                doubleLinkedList.AddToBack(11);
+                doubleLinkedList.AddToBack(12);
+                doubleLinkedList.AddToBack(15);
+                doubleLinkedList.AddToBack(67);
+                doubleLinkedList.AddToBack(69);
+                doubleLinkedList.AddToBack(70);
+                doubleLinkedList.AddToBack(71);
+                doubleLinkedList.AddToBack(72);
+                doubleLinkedList.InsertNodeAfter(12, 13);
+                doubleLinkedList.InsertNodeBefore(11, 27);
+                doubleLinkedList.InsertNodeBefore(13, 28);
+                doubleLinkedList.InsertNodeBefore(67, 29);
 
-            //Console.WriteLine("Printing in forward  after operation.");
-            //doubleLinkedList.PrintForward();
+                Console.WriteLine("Printing in forward- Original");
+                doubleLinkedList.PrintForward();
 
+                doubleLinkedList.SkipAndDeleteNodes(1, 12, 3);
+
+                Console.WriteLine("Printing in forward  after operation.");
+                doubleLinkedList.PrintForward();
+            }
 
             var sentinelList = new DSCourse.SentinelList.SentinelList();
 
@@ -54,8 +59,11 @@ namespace DSCourse
             sentinelList.AddToBack(1);
             sentinelList.AddToBack(9);
 
-            sentinelList.InsertBefore(9, 10, 12, 13);
-            
+            sentinelList.PrintForward();
+
+            sentinelList.InsertNodesBefore(9, 10, 12, 13);
+            sentinelList.InsertNodesAfter(13, 14, 15, 16);
+            Console.WriteLine("Print after Insert Before:");
             sentinelList.PrintForward();
 
             Console.ReadLine();

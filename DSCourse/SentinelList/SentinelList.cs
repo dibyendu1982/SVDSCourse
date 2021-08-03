@@ -27,41 +27,68 @@ namespace DSCourse.SentinelList
             this._tail.Previous = newNode;
         }
 
-        public void Remove(int value)
+        public void Remove(int valueToDelete)
         {
             // Start from head and move till tail
-            for (Node current = this._head.Next; current != this._tail; current = current.Next)
+            for (var current = this._head.Next; current != this._tail; current = current.Next)
             {
                 if (current == null)
                 {
                     Console.WriteLine("Node not found.");
                     return;
                 }
-                // The loop starts from the head next and goes till the tail hence no need to check the conditions.      
-                if (current.Value == value)
+                // Don't do anything if the value is not matching just move on to the next node.
+                if (current.Value != valueToDelete) 
+                    continue;
+
+                current.Previous.Next = current.Next;
+                current.Next.Previous = current.Previous;
+            }
+        }
+
+        public void InsertNodesBefore(int valueToSearch, params int[] list)
+        {
+            for (var current = this._head.Next; current != this._tail; current = current.Next)
+            {
+                if (current.Value != valueToSearch) 
+                    continue;
+                foreach (var item in list)
                 {
-                    current.Previous.Next = current.Next;
-                    current.Next.Previous = current.Previous;
+                    // Left hand and right hand
+                    var newNode = new Node(item)
+                    {
+                        Previous = current.Previous,
+                        Next = current
+                    };
+
+                    PullMeUpOnWall(newNode);
                 }
             }
         }
 
-        public void InsertBefore(int valueToSearch, params int[] list)
+        public void InsertNodesAfter(int valueToSearch, params int[] list)
         {
-            for (Node current = this._head.Next; current != this._tail; current = current.Next)
+            for (var current = this._head.Next; current != this._tail; current = current.Next)
             {
-                if (current.Value == valueToSearch)
+                // Continue with the loop if value is not matched.
+                if (current.Value != valueToSearch)
+                    continue;
+                foreach (var item in list)
                 {
-                    foreach (var item in list)
+                    // Left hand and right hand
+                    var newNode = new Node(item)
                     {
-                        var newNode = new Node(item);
-                        newNode.Next = current;
-                        newNode.Previous = current.Previous;
-                        current.Previous.Next = newNode;
-                        current = newNode;
-                    }
+                        Previous = current, 
+                        Next = current.Next
+                    };
+                    PullMeUpOnWall(newNode);
                 }
             }
+        }
+
+        private static void PullMeUpOnWall(Node newNode)
+        {
+            newNode.Previous.Next = newNode.Next.Previous = newNode;
         }
 
         public void PrintForward()
