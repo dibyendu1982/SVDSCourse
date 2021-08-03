@@ -54,7 +54,6 @@ namespace DSCourse.SentinelList
                     continue;
                 foreach (var item in list)
                 {
-                    // Left hand and right hand
                     InsertNode(item, current, true);
                 }
             }
@@ -69,7 +68,6 @@ namespace DSCourse.SentinelList
                     continue;
                 foreach (var item in list)
                 {
-                    // Left hand and right hand
                     InsertNode(item, current);
                 }
             }
@@ -78,6 +76,8 @@ namespace DSCourse.SentinelList
         private static void InsertNode(int item, Node current, bool before = false)
         {
             var newNode = new Node(item);
+
+            // Left Hand and Right Hand
             if (before)
             {
                 newNode.Previous = current.Previous;
