@@ -55,13 +55,7 @@ namespace DSCourse.SentinelList
                 foreach (var item in list)
                 {
                     // Left hand and right hand
-                    var newNode = new Node(item)
-                    {
-                        Previous = current.Previous,
-                        Next = current
-                    };
-
-                    PullMeUpOnWall(newNode);
+                    InsertNode(item, current, true);
                 }
             }
         }
@@ -76,14 +70,26 @@ namespace DSCourse.SentinelList
                 foreach (var item in list)
                 {
                     // Left hand and right hand
-                    var newNode = new Node(item)
-                    {
-                        Previous = current, 
-                        Next = current.Next
-                    };
-                    PullMeUpOnWall(newNode);
+                    InsertNode(item, current);
                 }
             }
+        }
+
+        private static void InsertNode(int item, Node current, bool before = false)
+        {
+            var newNode = new Node(item);
+            if (before)
+            {
+                newNode.Previous = current.Previous;
+                newNode.Next = current;
+            }
+            else
+            {
+                newNode.Previous = current;
+                newNode.Next = current.Next;
+            }
+            
+            PullMeUpOnWall(newNode);
         }
 
         private static void PullMeUpOnWall(Node newNode)
