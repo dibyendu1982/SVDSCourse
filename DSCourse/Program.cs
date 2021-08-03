@@ -17,7 +17,7 @@ namespace DSCourse
             var tree = new Tree();
             tree.Root = tree.AddNode(null, 5);
             tree.Root = tree.AddNode(tree.Root, 7);
-            tree.Root = tree.AddNode(null, 1);
+            tree.Root = tree.AddNode(tree.Root, 1);
             tree.Root = tree.AddNode(tree.Root, 10);
 
             tree.PrintNode(tree.Root);
