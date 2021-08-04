@@ -47,6 +47,7 @@
     <Compile Include="BinaryTree\Node.cs" />
     <Compile Include="DoubleLinkedList\DoublyLinkedList.cs" />
     <Compile Include="DoubleLinkedList\Node.cs" />
+    <Compile Include="SentinelList\CircularSentinelList.cs" />
     <Compile Include="SentinelList\Node.cs" />
     <Compile Include="SentinelList\SentinelList.cs" />
     <Compile Include="SingleLinkedList\LinkedList.cs" />

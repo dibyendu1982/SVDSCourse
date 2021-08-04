@@ -13,7 +13,16 @@ namespace DSCourse
             //LinkedListOperations();
             //DoublyLinkedListOperations();
             //SentinelListOperations();
+            //TreeOperations();
 
+            var circularSentinel = new CircularSentinelList();
+           circularSentinel.AddToFront(10, 11, 12, 13);
+            circularSentinel.PrintCircularSentinel();
+
+        }
+
+        private static void TreeOperations()
+        {
             var tree = new Tree();
             tree.Root = tree.AddNode(null, 5);
             tree.Root = tree.AddNode(tree.Root, 7);
