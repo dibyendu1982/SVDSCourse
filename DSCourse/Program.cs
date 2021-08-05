@@ -13,23 +13,48 @@ namespace DSCourse
             //LinkedListOperations();
             //DoublyLinkedListOperations();
             //SentinelListOperations();
-            //TreeOperations();
+            //CircularSentinelOperations();
+            //Factorial();
 
+            TreeOperations();
+
+            Console.ReadLine();
+        }
+
+        private static void Factorial()
+        {
+            var factorial = new Recursion.FactorialImplementation();
+
+            Console.WriteLine(factorial.RecursiveFactorial(5));
+            Console.WriteLine(factorial.NonRecursiveFactorial(5));
+        }
+
+        private static void CircularSentinelOperations()
+        {
             var circularSentinel = new CircularSentinelList();
-           circularSentinel.AddToFront(10, 11, 12, 13);
+            circularSentinel.AddToFront(10, 11, 12, 13);
             circularSentinel.PrintCircularSentinel();
-
         }
 
         private static void TreeOperations()
         {
             var tree = new Tree();
-            tree.Root = tree.AddNode(null, 5);
-            tree.Root = tree.AddNode(tree.Root, 7);
-            tree.Root = tree.AddNode(tree.Root, 1);
-            tree.Root = tree.AddNode(tree.Root, 10);
+            tree.AddNodes(5, 7, 1, 9, 8, 2, 10);
+          
+            Console.WriteLine("InOrder");
+            tree.PrintTreeInOrder();
 
-            tree.PrintNode(tree.Root);
+            tree.Remove(1);
+
+            Console.WriteLine("After Deletion.");
+            tree.PrintTreeInOrder();
+            //Console.WriteLine("PreOrder");
+            //tree.PrintTreePreOrder();
+            //Console.WriteLine("PostOrder");
+            //tree.PrintTreePostOrder();
+            //Console.WriteLine("PreOrder");
+
+
             Console.ReadLine();
         }
 
@@ -60,11 +85,7 @@ namespace DSCourse
             linkedList.AddToFront(10);
             linkedList.AddToFront(11);
 
-            linkedList.Remove(9);
-            linkedList.Remove(11);
-            linkedList.Remove(1);
-
-            linkedList.PrintLinkedList();
+            linkedList.PrintBackward();
         }
 
         public static void DoublyLinkedListOperations()

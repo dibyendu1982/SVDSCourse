@@ -78,7 +78,23 @@ namespace DSCourse
             }
         }
 
-        public void PrintLinkedList()
+        public Node Recursive(Node node)
+        {
+            if (node == null)
+                return null;
+            var result = Recursive(node.Next);
+
+            Console.WriteLine($"{result.Value}");
+            return result;
+        }
+
+        public void PrintBackward()
+        {
+            Recursive(this._head);
+
+        }
+
+        public void PrintForward()
         {
             for (Node current = _head; current != null; current = current.Next )
             {
