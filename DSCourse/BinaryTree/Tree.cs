@@ -8,6 +8,8 @@ namespace DSCourse.BinaryTree
     public class Tree
     {
         private Node _root;
+        private static int _level = 0;
+        private const string _SPACES = "    ";
 
         public Tree()
         {
@@ -41,7 +43,7 @@ namespace DSCourse.BinaryTree
 
         public void Remove(int value)
         {
-            this._root = RemoveNode(this._root);
+            this._root = RemoveNode(this._root); // This is Data Abstraction 
 
             // Local Function
             Node RemoveNode(Node current)
@@ -59,26 +61,33 @@ namespace DSCourse.BinaryTree
                 }
                 else
                 {
+                    // MIL GAYI!!! Found the value
                     // found the element 
+
+                    // ~ Case 1: node has no children 
                     if (current.Left == null && current.Right == null)
                     {
                         Console.WriteLine("No child hence return null");
                         return null;
                     }
 
-                    // Only has a right child 
-                    if (current.Left == null && current.Right != null)
+                    // ~ Case 2 & 3: Either left or right chile is alive 
+                    if (current.Left == null || current.Right == null)
                     {
-                        Console.WriteLine($"Only has a right child node - {current.Value} --> {current.Right.Value}");
-                        return current.Right;
+                        return current.Left ?? current.Right;
                     }
 
-                    // only has left child
-                    if (current.Right == null && current.Left != null)
-                    {
-                        Console.WriteLine($"Only has a left child node - {current.Value} --> {current.Left.Value}");
-                        return current.Left;
-                    }
+                    // ~ Case 4: Node has both the child, then deletion needs to happen with the Successor. 
+                    // * Find successor (Left most node of the Right subtree) or predecessor (Right most node of the left subtree)
+                    var successor = current.Right; //starting point for finding the successor 
+
+                    while (successor.Left != null)
+                        successor = successor.Left;
+
+                    //Succcessor found 
+                    Console.WriteLine($"Case 4: {current.Value}");
+                    current.Value = successor.Value;
+                    current.Right = RemoveNode(current.Right);
                 }
 
                 return current;
@@ -127,6 +136,33 @@ namespace DSCourse.BinaryTree
                 PrintPostOrder(current.Right);
                 Console.WriteLine(current.Value);
             }
+        }
+
+        public void PrintTreeStructure()
+        {
+            string treeStructure = string.Empty;
+            PrintTreeRecursive(this._root);
+
+            void PrintTreeRecursive(Node current)
+            {
+                // There's nothing to print 
+                if (current == null)
+                    return;
+
+                _level++;
+                PrintTreeRecursive(current.Right);
+                var indent = string.Empty;
+
+                for (int count = 1; count < _level; indent += _SPACES, count++)
+                {
+                    treeStructure += $"{indent}{current.Value}\n";
+                }
+
+                PrintTreeRecursive(current.Left);
+                _level--;
+            }
+
+            Console.WriteLine($"{treeStructure}");
         }
     }
 }

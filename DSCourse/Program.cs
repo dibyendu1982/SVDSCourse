@@ -44,10 +44,13 @@ namespace DSCourse
             Console.WriteLine("InOrder");
             tree.PrintTreeInOrder();
 
-            tree.Remove(1);
+            tree.Remove(7);
 
             Console.WriteLine("After Deletion.");
             tree.PrintTreeInOrder();
+
+            Console.WriteLine("tree Structure");
+            tree.PrintTreeStructure();
             //Console.WriteLine("PreOrder");
             //tree.PrintTreePreOrder();
             //Console.WriteLine("PostOrder");
