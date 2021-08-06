@@ -15,8 +15,23 @@ namespace DSCourse
             //SentinelListOperations();
             //CircularSentinelOperations();
             //Factorial();
+            //TreeOperations();
 
-            TreeOperations();
+            HashTableOperations();
+        }
+
+        private static void HashTableOperations()
+        {
+            var hashTable = new HashTable();
+
+            hashTable.PutItem(10);
+            hashTable.PutItem(9);
+            hashTable.PutItem(8);
+            hashTable.PutItem(7);
+
+            hashTable.RemoveItem(7);
+
+            hashTable.Print();
 
             Console.ReadLine();
         }
