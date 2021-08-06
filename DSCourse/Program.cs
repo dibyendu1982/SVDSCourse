@@ -25,6 +25,8 @@ namespace DSCourse
             var hashTable = new HashTable();
 
             hashTable.PutItem(10);
+            hashTable.PutItem(20);
+            hashTable.PutItem(30);
             hashTable.PutItem(9);
             hashTable.PutItem(8);
             hashTable.PutItem(7);
