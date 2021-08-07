@@ -38,13 +38,13 @@ namespace DSCourse
         public void PutItem(int input)
         {
             var index = this.Hash(input);
-            var newNode = new Entry(input) {Next = null};
+            var newNode = new Entry(input) {Next = null}; // Entry
 
-            // If there's already a value existing 
+            // If there's already a value existing !!! Collision
             if (_table[index] != null)
             {
                 // Make the new node as the head
-                newNode.Next = _table[index];
+                newNode.Next = _table[index]; // Separate Chaining
             }
             _table[index] = newNode;
         }

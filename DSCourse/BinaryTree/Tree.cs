@@ -84,9 +84,9 @@ namespace DSCourse.BinaryTree
                     while (successor.Left != null)
                         successor = successor.Left;
 
-                    //Succcessor found 
+                    //Successor found 
                     Console.WriteLine($"Case 4: {current.Value}");
-                    current.Value = successor.Value;
+                    value = successor.Value;
                     current.Right = RemoveNode(current.Right);
                 }
 
@@ -153,10 +153,8 @@ namespace DSCourse.BinaryTree
                 PrintTreeRecursive(current.Right);
                 var indent = string.Empty;
 
-                for (int count = 1; count < _level; indent += _SPACES, count++)
-                {
-                    treeStructure += $"{indent}{current.Value}\n";
-                }
+                for (int count = 1; count < _level; indent += _SPACES, count++) ;
+                treeStructure += $"{indent}{current.Value}\n";
 
                 PrintTreeRecursive(current.Left);
                 _level--;

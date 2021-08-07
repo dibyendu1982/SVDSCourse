@@ -16,8 +16,20 @@ namespace DSCourse
             //CircularSentinelOperations();
             //Factorial();
             //TreeOperations();
+            //HashTableOperations();
 
-            HashTableOperations();
+            MapUsingKeyValueOperations();
+        }
+
+        private static void MapUsingKeyValueOperations()
+        {
+            var mapUsingKeyValue = new MapUsingKeyValue(10);
+            mapUsingKeyValue.PutItem(823, "test1");
+            mapUsingKeyValue.PutItem(821, "test2");
+            mapUsingKeyValue.PutItem(822, "test3");
+            mapUsingKeyValue.PutItem(820, "test4");
+            mapUsingKeyValue.PutItem(420, "test5");
+            mapUsingKeyValue.Print();
         }
 
         private static void HashTableOperations()
@@ -60,11 +72,10 @@ namespace DSCourse
           
             Console.WriteLine("InOrder");
             tree.PrintTreeInOrder();
+            Console.WriteLine("tree Structure");
+            tree.PrintTreeStructure();
 
             tree.Remove(7);
-
-            Console.WriteLine("After Deletion.");
-            tree.PrintTreeInOrder();
 
             Console.WriteLine("tree Structure");
             tree.PrintTreeStructure();
