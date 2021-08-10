@@ -30,6 +30,7 @@ namespace DSCourse.DoubleLinkedList
                 this._tail = newNode;
             }
         }
+
         public void AddToFront(int value)
         {
             var newNode = new Node(value);

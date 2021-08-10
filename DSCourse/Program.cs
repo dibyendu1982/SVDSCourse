@@ -17,8 +17,26 @@ namespace DSCourse
             //Factorial();
             //TreeOperations();
             //HashTableOperations();
+            //MapUsingKeyValueOperations();
+            StackAsArrayOperations();
+        }
 
-            MapUsingKeyValueOperations();
+        private static void StackAsArrayOperations()
+        {
+            var stackAsArray = new StackAsArray(10);
+            stackAsArray.Push(10);
+            stackAsArray.Push(9);
+            stackAsArray.Push(8);
+            stackAsArray.Push(7);
+            stackAsArray.Push(6);
+            stackAsArray.Push(5);
+
+            stackAsArray.Pop();
+            stackAsArray.Pop();
+
+            stackAsArray.Seek();
+
+            stackAsArray.Print();
         }
 
         private static void MapUsingKeyValueOperations()
