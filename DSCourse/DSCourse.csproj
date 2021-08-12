@@ -49,6 +49,7 @@
     <Compile Include="DoubleLinkedList\Node.cs" />
     <Compile Include="MapUsingKeyValue.cs" />
     <Compile Include="HashTable.cs" />
+    <Compile Include="QueueAsArray.cs" />
     <Compile Include="Recursion\FactorialImplementation.cs" />
     <Compile Include="SentinelList\CircularSentinelList.cs" />
     <Compile Include="SentinelList\Node.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StackAsArray.cs" />
+    <Compile Include="StackAsLinkedList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

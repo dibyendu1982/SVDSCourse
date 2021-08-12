@@ -18,7 +18,32 @@ namespace DSCourse
             //TreeOperations();
             //HashTableOperations();
             //MapUsingKeyValueOperations();
-            StackAsArrayOperations();
+            //StackAsArrayOperations();
+            //StackAsLinkedListOperations();
+            QueueAsArrayOperations();
+
+        }
+
+        private static void QueueAsArrayOperations()
+        {
+            var queueAsArray = new QueueAsArray(10);
+            queueAsArray.Enqueue(1, 2, 3, 4, 5);
+            queueAsArray.Dequeue();
+            Console.WriteLine(queueAsArray.Dequeue());
+            queueAsArray.Print();
+        }
+
+        private static void StackAsLinkedListOperations()
+        {
+            var stackAsLinkedList = new StackAsLinkedList();
+            stackAsLinkedList.Push(1, 2 , 3, 4);
+            stackAsLinkedList.Print();
+            Console.WriteLine("After couple of pops");
+            stackAsLinkedList.Pop();
+            stackAsLinkedList.Pop();
+            stackAsLinkedList.Print();
+            Console.ReadLine();
+
         }
 
         private static void StackAsArrayOperations()
