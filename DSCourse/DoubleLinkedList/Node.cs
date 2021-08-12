@@ -19,4 +19,5 @@ namespace DSCourse.DoubleLinkedList
             this.Value = value;
         }
     }
+
 }
