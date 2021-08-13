@@ -20,8 +20,21 @@ namespace DSCourse
             //MapUsingKeyValueOperations();
             //StackAsArrayOperations();
             //StackAsLinkedListOperations();
-            QueueAsArrayOperations();
+            //QueueAsArrayOperations();
+            QueueAsDoubleLinkedListOperations();
 
+        }
+
+        private static void QueueAsDoubleLinkedListOperations()
+        {
+            var queueAsLinkedList = new QueueAsDoubleLinkedList();
+            queueAsLinkedList.Enqueue(6,7,8,9,10);
+            Console.WriteLine("Here's what array looked like: ");
+            queueAsLinkedList.Print();
+            Console.WriteLine($" Node Dequeued: {queueAsLinkedList.Dequeue()} ");
+            Console.WriteLine($" Node Dequeued: {queueAsLinkedList.Dequeue()} ");
+            queueAsLinkedList.Enqueue(11, 12, 13);
+            queueAsLinkedList.Print();
         }
 
         private static void QueueAsArrayOperations()

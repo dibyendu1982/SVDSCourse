@@ -18,7 +18,6 @@ namespace DSCourse
             this.Next = null;
             this.Value = value;
         }
-
     }
 
     public class QueueAsDoubleLinkedList
@@ -68,6 +67,13 @@ namespace DSCourse
             }
         }
 
+        public void Print()
+        {
+            for (QueueNode current  = this._head; current != null; current= current.Next)
+            {
+                Console.WriteLine($"{current.Value}");
+            }
+        }
 
     }
 }
