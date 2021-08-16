@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DSCourse
 {
@@ -14,27 +15,67 @@ namespace DSCourse
 
         }
 
-        public void AddToEnd(int a)
+        public void AddToFront(int a)
         {
 
             var reff = new Node(a);
-            if (_head ==  null)
+            if (_head == null)
             {
-                _head = reff;
                 _tail = reff;
             }
             else
             {
-                this._tail.Next = reff;
-                this._tail = reff;
+                reff.Next = _head;
+                this._head = reff;
+
             }
+        }
+
+        public void AddToEnd(params int[] values)
+        {
+            foreach (var value in values)
+            {
+                var reff = new Node(value);
+                if (_head == null)
+                {
+                    _head = reff;
+                    _tail = reff;
+                }
+                else
+                {
+                    this._tail.Next = reff;
+                    this._tail = reff;
+                }
+            }
+            
+        }
+
+        public void ReverseLinkedList()
+        {
+            if (this._head == null)
+            {
+                throw new Exception("Empty Linked List");
+            }
+            
+            Node previous = null;
+            Node currentNode = this._head;
+            Node nextNode = null;
+
+            while (currentNode != null )
+            {
+                nextNode = currentNode.Next;
+                currentNode.Next = previous;
+                previous = currentNode;
+                currentNode = nextNode;
+            }
+
+            this._head = previous;
+
         }
 
         public void Remove(int valueToRemove)
         {
-
             var back = _head;
-
             for (Node current = _head; current != null; current = current.Next)
             {
                 if (current.Value == valueToRemove)
@@ -62,35 +103,19 @@ namespace DSCourse
             }
         }
 
-        public void AddToFront(int a)
-        {
-
-            var reff = new Node(a);
-            if (_head == null)
-            {
-                _tail = reff;
-            }
-            else
-            {
-                reff.Next = _head;
-                this._head = reff;
-                
-            }
-        }
-
-        public Node Recursive(Node node)
-        {
-            if (node == null)
-                return null;
-            var result = Recursive(node.Next);
-
-            Console.WriteLine($"{result.Value}");
-            return result;
-        }
-
         public void PrintBackward()
         {
             Recursive(this._head);
+
+            Node Recursive(Node node)
+            {
+                if (node == null)
+                    return null;
+                var result = Recursive(node.Next);
+
+                Console.WriteLine($"{result.Value}");
+                return result;
+            }
 
         }
 

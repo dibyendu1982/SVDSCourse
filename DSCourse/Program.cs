@@ -10,7 +10,7 @@ namespace DSCourse
     {
         static void Main(string[] args)
         {
-            //LinkedListOperations();
+            LinkedListOperations();
             //DoublyLinkedListOperations();
             //SentinelListOperations();
             //CircularSentinelOperations();
@@ -21,7 +21,7 @@ namespace DSCourse
             //StackAsArrayOperations();
             //StackAsLinkedListOperations();
             //QueueAsArrayOperations();
-            QueueAsDoubleLinkedListOperations();
+            //QueueAsDoubleLinkedListOperations();
 
         }
 
@@ -165,14 +165,13 @@ namespace DSCourse
         private static void LinkedListOperations()
         {
             var linkedList = new LinkedList();
-            linkedList.AddToEnd(5);
-            linkedList.AddToEnd(6);
-            linkedList.AddToEnd(9);
-            linkedList.AddToEnd(1);
+            linkedList.AddToEnd(5, 6, 9, 1);
             linkedList.AddToFront(10);
             linkedList.AddToFront(11);
+            linkedList.ReverseLinkedList();
+            linkedList.PrintForward();
 
-            linkedList.PrintBackward();
+            //linkedList.PrintBackward();
         }
 
         public static void DoublyLinkedListOperations()
