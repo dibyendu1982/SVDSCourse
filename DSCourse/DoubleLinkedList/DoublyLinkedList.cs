@@ -79,7 +79,6 @@ namespace DSCourse.DoubleLinkedList
             }
         }
 
-
         public void InsertNodeBefore(int valueToSearch, int valueToInsert)
         {
             for (Node current = this._head; current != null; current = current.Next)
@@ -108,6 +107,27 @@ namespace DSCourse.DoubleLinkedList
                     current.Previous = nodeToInsert;
                 }
             }
+        }
+
+        public void ReverseDoublyLinkedList()
+        {
+            Node previous = null;
+            Node currentNode = this._head;
+
+            while (currentNode != null)
+            {
+                previous = currentNode.Previous;
+                currentNode.Previous = currentNode.Next;
+                currentNode.Next = previous;
+                // This is how you move to the next node after swapping the pointers 
+                currentNode = currentNode.Previous;
+            }
+
+            if (previous != null)
+            {
+                this._head = previous.Previous;
+            }
+
         }
 
         public void SkipAndDeleteNodes(int startPosition, int stopPosition, int nodesToSkip)
@@ -157,7 +177,8 @@ namespace DSCourse.DoubleLinkedList
                     {
                         return;
                     }
-                    else if (current == this._tail)
+
+                    if (current == this._tail)
                     {
                         // if the tail is reached then save the tail
                         this._tail = current.Previous;
