@@ -10,8 +10,8 @@ namespace DSCourse
     {
         static void Main(string[] args)
         {
-            LinkedListOperations();
-            //DoublyLinkedListOperations();
+            //LinkedListOperations();
+            DoublyLinkedListOperations();
             //SentinelListOperations();
             //CircularSentinelOperations();
             //Factorial();
@@ -194,7 +194,9 @@ namespace DSCourse
             Console.WriteLine("Printing in forward- Original");
             doubleLinkedList.PrintForward();
 
-            doubleLinkedList.SkipAndDeleteNodes(1, 12, 3);
+            doubleLinkedList.ReverseDoublyLinkedList();
+
+            //doubleLinkedList.SkipAndDeleteNodes(1, 12, 3);
 
             Console.WriteLine("Printing in forward  after operation.");
             doubleLinkedList.PrintForward();

@@ -20,26 +20,31 @@ namespace DSCourse.BinaryTree
         {
             foreach (var value in values)
             {
-                _root = this.AddNodeWithRecursion(_root, value);
+                _root = AddNodeWithRecursion(_root, value);
+            }
+
+            Node AddNodeWithRecursion(Node current, int value)
+            {
+                if (current == null)
+                {
+                    return new Node(value);
+                }
+
+                if (value > current.Value)
+                {
+
+                    current.Right = AddNodeWithRecursion(current.Right, value);
+                }
+                else
+                {
+                    current.Left = AddNodeWithRecursion(current.Left, value);
+                }
+
+                return current;
             }
         }
 
-        private Node AddNodeWithRecursion(Node current, int value)
-        {
-            if (current == null) {
-                return new Node(value);
-            }
-
-            if (value > current.Value) {
-
-                current.Right = this.AddNodeWithRecursion(current.Right, value);
-            }
-            else {
-                current.Left = this.AddNodeWithRecursion(current.Left, value);
-            }
-
-            return current;
-        }
+        
 
         public void Remove(int value)
         {
