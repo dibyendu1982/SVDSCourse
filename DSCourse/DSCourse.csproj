@@ -52,6 +52,7 @@
     <Compile Include="QueueAsArray.cs" />
     <Compile Include="QueueAsDoubleLinkedList.cs" />
     <Compile Include="Recursion\FactorialImplementation.cs" />
+    <Compile Include="Recursion\FibbonaciImplementation.cs" />
     <Compile Include="SentinelList\CircularSentinelList.cs" />
     <Compile Include="SentinelList\Node.cs" />
     <Compile Include="SentinelList\SentinelList.cs" />

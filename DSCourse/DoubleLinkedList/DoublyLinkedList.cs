@@ -215,6 +215,11 @@ namespace DSCourse.DoubleLinkedList
             }
         }
 
+        public void ReversDoublyLinkedList()
+        {
+
+        }
+
         public void PrintBackward()
         {
             for (Node current = this._tail; current!= null; current = current.Previous)
